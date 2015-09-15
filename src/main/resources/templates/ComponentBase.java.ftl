@@ -33,6 +33,17 @@
 	</#list>
 	<#return has_attribute />
 </#function>
+
+<#function has_non_inherited_attribute tag attribute_name>
+	<#local has_non_inherited_attribute = false />
+	<#list tag["attribute"] as attribute>
+		<#if attribute["name"] == attribute_name && !attribute_is(attribute, "inherited", false)>
+			<#local has_non_inherited_attribute = true />
+			<#break />
+		</#if>
+	</#list>
+	<#return has_non_inherited_attribute />
+</#function>
 </#compress>
 <@generate_copyright_header shortNamespace copyrightYear />
 package ${get_component_package(tag["tag-name"])};
@@ -43,7 +54,7 @@ import javax.annotation.Generated;
 <#if get_unqualified_class_name(get_parent_class(tag)) != "${tag[\"tag-name\"]?cap_first}Base">
 import ${get_parent_class(tag)?keep_before("<")};
 </#if>
-<#assign clientComponent = has_attribute(tag, "clientKey") />
+<#assign clientComponent = has_non_inherited_attribute(tag, "clientKey") />
 <#assign styleable = has_attribute(tag, "style") && has_attribute(tag, "styleClass") />
 <#if clientComponent || styleable>
 

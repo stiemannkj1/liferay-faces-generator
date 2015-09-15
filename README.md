@@ -1,4 +1,4 @@
-# liferay-faces-generator
+# Liferay Faces Generator
 
 The Liferay Faces Generator is a code generator designed to generate
 Java Server&trade; Faces (JSF) custom components and `taglib.xml` files. The

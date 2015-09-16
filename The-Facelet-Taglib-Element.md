@@ -2,28 +2,6 @@
 
 The `facelet-taglib` element is the root element of the [`tags.xml`](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-tags.xml-File) file. It contains all the information necessary to generate a JSF tag library.
 
-## `facelet-taglib` Child Elements
-
-| `facelet-taglib` Child Element Name | Description | Required | Default Value |
-|-------------------------------------|-------------|----------|---------------|
-| `description` | The `<description>` element specifies a description of the tag library. | No | None |
-| `function` | The `<funtion>` element specifies one of the functions of the tag library. A tag library may have many functions. See the [examples below](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#examples) for an example of how to specify a function. | No | None |
-| `namespace` | The `<namespace>` element specifies a namespace URI of the tag library. | Yes | None |
-| `taglib-extension` | The `<taglib-extension>` element specifies information needed to generate the JSF component suite. See [the *`taglib-extension`s* section below](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#taglib-extensions) for more details. | Yes | None |
-| `tag` | The `<tag>` element specifies one of the tags of the tag library. A tag library may have many `tag`s. See [*The `tag` Element* page](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Tag-Element) for more details. | No | None |
-
-### `taglib-extension`s
-
-| `taglib- extension` Name | Description | Required | Default Value |
-|--------------------------|-------------|----------|---------------|
-| `authors` | The `<authors>` element specifies a comma separated list of the author names that will be generated in each component's JavaDoc header. | No | None |
-| `component- internal- output- directory` | The `<component-internal-output-directory>` element specifies the full path to the folder where `ComponentRenderer.java` and `ComponentRendererBase.java` files will be generated. | No | Defaults to the value of `component- output- directory`. |
-| `component- output- directory` | The `<component-output-directory>` element specifies the full path to the folder where `Component.java` and `ComponentBase.java` files will be generated. | Yes | None |
-| `copyright- year` | The `<copyright-year>` element specifies the year which will be output in each Java file's copyright header | No | Defaults to the current year. |
-| `default- since` | The `<default-since>` element specifies the default value which will be output for each component's [`<vdldoc:since>`](https://github.com/omnifaces/vdldoc/wiki/vdldoc:since) element. This value can be overridden in the `since` element of a tag's `tag-extension` | No | `1.0.0` |
-| `faces- spec- version` | The `<faces-spec-version>` element specifies the JSF specification version. It is used to generate the `taglib.xml`'s `<faclet-taglib>` element with the correct namespaces and versions specified. | No | `2.0` |
-| `taglib- xml- output- directory` | The `<taglib-xml-output-directory>` element specifies the full file path to the folder where the `taglib.xml` file will be generated. | Yes | None |
-
 ## Examples
 
 ```
@@ -53,3 +31,25 @@ The `facelet-taglib` element is the root element of the [`tags.xml`](https://git
 	</tag>
 </facelet-taglib>
 ```
+
+## `facelet-taglib` Child Elements
+
+| `facelet-taglib` Child Element Name | Description | Required | Default Value |
+|-------------------------------------|-------------|----------|---------------|
+| `description` | The `<description>` element specifies a description of the tag library. | No | None |
+| `function` | The `<funtion>` element specifies one of the functions of the tag library. A tag library may have many functions. See the [examples](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#examples) for an example of how to specify a function. | No | None |
+| `namespace` | The `<namespace>` element specifies a namespace URI of the tag library. | Yes | None |
+| `taglib-extension` | The `<taglib-extension>` element specifies information needed to generate the JSF component suite. See [the *`taglib-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#taglib-extensions) for more details. | Yes | None |
+| `tag` | The `<tag>` element specifies one of the tags of the tag library. A tag library may have many `tag`s. See [*The `tag` Element* page](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Tag-Element) for more details. | No | None |
+
+### `taglib-extension`s
+
+| `taglib- extension` Name | Description | Required | Default Value |
+|--------------------------|-------------|----------|---------------|
+| `authors` | The `<authors>` element specifies a comma separated list of the author names that will be generated in each component's JavaDoc header. | No | None |
+| `component- internal- output- directory` | The `<component-internal-output-directory>` element specifies the full path to the folder where `ComponentRenderer.java` and `ComponentRendererBase.java` files will be generated. | No | Defaults to the value of `component- output- directory`. |
+| `component- output- directory` | The `<component-output-directory>` element specifies the full path to the folder where `Component.java` and `ComponentBase.java` files will be generated. | Yes | None |
+| `copyright- year` | The `<copyright-year>` element specifies the year which will be output in each Java file's copyright header | No | Defaults to the current year. |
+| `default- since` | The `<default-since>` element specifies the default value which will be output for each component's [`<vdldoc:since>`](https://github.com/omnifaces/vdldoc/wiki/vdldoc:since) element. This value can be overridden in the `since` element of a tag's `tag-extension` | No | `1.0.0` |
+| `faces- spec- version` | The `<faces-spec-version>` element specifies the JSF specification version. It is used to generate the `taglib.xml`'s `<faclet-taglib>` element with the correct namespaces and versions specified. | No | `2.0` |
+| `taglib- xml- output- directory` | The `<taglib-xml-output-directory>` element specifies the full file path to the folder where the `taglib.xml` file will be generated. | Yes | None |

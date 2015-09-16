@@ -1,6 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <facelet-taglib>
-	<namespace>http://liferay.com/faces/alloy</namespace>
 	<tag>
 		<tag-name>alt</tag-name>
 		<attribute>

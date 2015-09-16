@@ -1,4 +1,4 @@
-# The `tag.xml` File.
+# The `tag.xml` File
 
 The `tag.xml` file is designed to be as similar to a JSF `taglib.xml` file as possible, while adding some extra features to help component developers. From the `tags.xml` file, the generator can generate:
 

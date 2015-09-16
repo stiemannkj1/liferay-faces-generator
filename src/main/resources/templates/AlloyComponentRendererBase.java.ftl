@@ -44,7 +44,9 @@ import ${get_renderer_parent_class(tag)};
 import ${get_component_package(tag["tag-name"])}.${tag["tag-name"]?cap_first};
 
 
-<@generate_authors />
+<#if authors??>
+<@generate_authors authors />
+</#if>
 @Generated(value = "com.liferay.alloy.tools.builder.FacesBuilder")
 public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_renderer_parent_class(tag)?keep_after_last(".")} {
 	<#assign first = true>

@@ -1,7 +1,7 @@
 <#compress>
 <#include "./TemplateFunctions.ftl" />
 
-<#macro generate_authors>
+<#macro generate_authors authors>
 /**
 <#list authors?sort as author>
  * @author	${author}

@@ -11,7 +11,9 @@ import javax.faces.render.FacesRenderer;
 import ${get_component_package(tag["tag-name"])}.${tag["tag-name"]?cap_first};
 
 
-<@generate_authors />
+<#if authors??>
+<@generate_authors authors />
+</#if>
 //J-
 @FacesRenderer(componentFamily = ${tag["tag-name"]?cap_first}.COMPONENT_FAMILY, rendererType = ${tag["tag-name"]?cap_first}.RENDERER_TYPE)
 <#if is_alloy(tag)>

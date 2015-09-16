@@ -8,11 +8,13 @@ The `tags.xml` file is designed to be as similar to a JSF `taglib.xml` file as p
 - The `ComponentRendererBase.java` file
 - And the components `taglib.xml` documentation
 
-Here is an example `tags.xml` file:
+Here is an example `new-tags.xml` file:
 
 ```
 <?xml version='1.0' encoding='UTF-8'?>
 <facelet-taglib>
+	<description><![CDATA[The New facelet component tags with the <code>new:</code> tag name prefix.]]></description>
+	<namespace>http://liferay.com/faces/new</namespace>
 	<taglib-extension>
 		<component-output-directory>${project.build.sourceDirectory}/com/liferay/faces</component-output-directory>
 		<taglib-xml-output-directory>${project.build.sourceDirectory}/../resources/META-INF</taglib-xml-output-directory>

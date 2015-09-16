@@ -15,7 +15,7 @@ Using [Maven](https://maven.apache.org/) 3.x:
 
 ## Usage
 
-For information about the format of the `tags.xml` file see [here](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-tag.xml-File.).
+For information about the format of the `tags.xml` file see [here](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-tags.xml-File).
 
 The generator can be used from the command-line like so:
 

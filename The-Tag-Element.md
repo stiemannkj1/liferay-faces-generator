@@ -2,7 +2,7 @@
 
 The `tag` element is designed to contain all the information that is useful for generating a JSF Component.
 
-## `tag` Element Children
+## `tag` Child Elements
 
 | `tag` Child Element Name | Description | Required | Default Value |
 |--------------------------|-------------|----------|---------------|
@@ -14,8 +14,8 @@ The `tag` element is designed to contain all the information that is useful for 
 
 ### `tag-extension`s
 
-| `tag- extension` (Child Element) Name | Description | Required | Default Value |
-|---------------------------------------|-------------|----------|---------------|
+| `tag- extension` Child Element Name | Description | Required | Default Value |
+|-------------------------------------|-------------|----------|---------------|
 | `delegate- component- family` | The `<delegate-component-family>` element specifies the component family of the component's delegate renderer. The delegate component family is a key used with the delegate renderer type to determine which renderer the component will delegate to. | No | If a `delegate- renderer-type` has been specified then `delegate- component-family` defaults to the component's `COMPONENT_FAMILY` constant value. |
 | `delegate- renderer- type` | The `<delegate-renderer-type>` element specifies the renderer type of the component's delegate renderer. The delegate renderer type is a key used with the delegate component family to determine which renderer the component will delegate to. | No | None |
 | `extends- tags` | The `<extends-tags>` element specifies a space separated list of all the tags which the current tag extends from. Extending a tag causes a tag to gain all the attributes of the tag which was extended. | No | None |
@@ -31,8 +31,8 @@ The `tag` element is designed to contain all the information that is useful for 
 
 ### `tag-extension`s for [Liferay Faces Alloy Components](https://github.com/liferay/liferay-faces-alloy/tree/master/alloy/src/main/java/com/liferay/faces/alloy/component)
 
-| `tag- extension` (Child Element) Name | Description | Required | Default Value |
-|---------------------------------------|-------------|----------|---------------|
+| `tag- extension` Child Element Name | Description | Required | Default Value |
+|-------------------------------------|-------------|----------|---------------|
 | `alloy- ui- module` | The `<alloy-ui-module>` element specifies the [AlloyUI JavaScript module](http://alloyui.com/versions/2.0.x/api/) of the component. If this element exists, the component renderer base file will be generated via the [`AlloyComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/AlloyComponentRendererBase.java.ftl) rather than the [`ComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/ComponentRendererBase.java.ftl). | No | None |
 | `alloy-ui- name` | The `<alloy-ui-name>` element specifies the name of the [AlloyUI JavaScript component](http://alloyui.com/versions/2.0.x/api/) which the JSF component will render. | No | If an `alloy-ui- module` has been specified, this defaults to the name of the tag, otherwise there is no default. |
 

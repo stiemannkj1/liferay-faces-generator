@@ -14,7 +14,7 @@
 <#assign defaultXMLNamespace = "http://xmlns.jcp.org/xml/ns/javaee">
 <#assign faceletTaglibVersion = facesSpecVersion>
 <#assign vdldocNamespace = "http://vdldoc.omnifaces.org" />
-<#if faceletTaglibVersion == "2.1">
+<#if faceletTaglibVersion == "2.1" || faceletTaglibVersion == "2.0">
 	<#assign defaultXMLNamespace = "http://java.sun.com/xml/ns/javaee" />
 	<#assign faceletTaglibVersion = "2.0" />
 	<#assign vdldocNamespace = "http://vdldoc.org/vdldoc" />

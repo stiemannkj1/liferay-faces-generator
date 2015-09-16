@@ -305,7 +305,7 @@ public class Generator {
 				String defaultSince = GeneratorUtil.getNodeContents("default-since", childNode);
 
 				if (defaultSince == null) {
-					throw new NullPointerException("<default-since> must be specified.");
+					defaultSince = "1.0.0";
 				}
 
 				freemarkerProperties.put("defaultSince", defaultSince);

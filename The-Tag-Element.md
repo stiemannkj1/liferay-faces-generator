@@ -5,7 +5,7 @@ The tag element is designed to contain all the information that is useful for ge
 ## Tag Element Children
 
 | `tag` Child Element Name | Description | Required | Default Value |
-|----------------------------|-------------|----------|---------------|
+|--------------------------|-------------|----------|---------------|
 | `attribute` | The `<attribute>` element specifies one of the attributes of the tag. A tag may have many `attribute`s. See [*The Attribute Element* page]() for more details. | No | None |
 | `description` | The `<description>` element specifies a description of the tag. | No | None |
 | `handler-class` | The `<handler-class>` element specifies the fully qualified class name of the tag's tag handler. | No | None |

@@ -40,7 +40,7 @@ The `attribute` element is designed to contain all the information necessary to 
 
 | `attribute` Child Element Name | Description | Required | Default Value |
 |--------------------------------|-------------|----------|---------------|
-| `attribute-extension` | The `<attribute-extension>` element specifies information needed to generate the attribute. See [the *`attribute-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Atttriute-Element#attribute-extensions) for more details. | No | None |
+| `attribute-extension` | The `<attribute-extension>` element specifies information needed to generate the attribute. See [the *`attribute-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Attriute-Element#attribute-extensions) for more details. | No | None |
 | `description` | The `<description>` element specifies a description of the attribute. | No | None |
 | `name` | The `<name>` element specifies the name of the attribute. | Yes | None |
 | `type` | The `<type>` element specifies the fully qualified type of the attribute | No | `java.lang.Object` |

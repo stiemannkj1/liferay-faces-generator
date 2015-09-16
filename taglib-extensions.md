@@ -8,4 +8,4 @@
 | `copyright-year` | The `<copyright-year>` element specifies the year which will be output in each Java file's copyright header | No | Defaults to the current year. |
 | `default-since` | The `<default-since>` element specifies the default value which will be output for each component's [`vdldoc:since`](https://github.com/omnifaces/vdldoc/wiki/vdldoc:since) element. This value can be overridden in the `since` element of a tag's `tag-extension` | No | `1.0.0` |
 | `faces-spec-version` | The `<faces-spec-version>` element specifies the JSF specification version. It is used to generate the `taglib.xml`'s `<faclet-taglib>` element with the correct namespaces and versions specified. | No | `2.0` |
-| `taglib-xml-output-directory` | The `<taglib-xml-output-directory>` element specifies the fill file path to the folder where the generated `taglib.xml` will be output. |
+| `taglib-xml-output-directory` | The `<taglib-xml-output-directory>` element specifies the fill file path to the folder where the generated `taglib.xml` will be output. | Yes | None |

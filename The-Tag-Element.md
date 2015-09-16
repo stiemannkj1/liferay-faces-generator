@@ -42,7 +42,9 @@ The tag element is designed to contain all the information that is useful for ge
 <tag>
 	<tag-name>autoComplete</tag-name>
 	<handler-class>com.liferay.faces.alloy.component.autocomplete.internal.AutoCompleteHandler</handler-class>
-	<!-- attributes here -->
+	<attribute>
+		<!-- attribute children here --> 
+	</attribute>
 	<tag-extension>
 		<alloy-ui-module>autocomplete</alloy-ui-module>
 		<alloy-ui-name>Autocomplete</alloy-ui-name>
@@ -63,7 +65,9 @@ The tag element is designed to contain all the information that is useful for ge
 ```
 <tag>
 	<tag-name>styleable</tag-name>
-	<!-- attributes here -->
+	<attribute>
+		<!-- attribute children here --> 
+	</attribute>
 	</tag-extension>
 		<generate-java>false</generate-java>
 		<generate-taglib-xml>false</generate-taglib-xml>

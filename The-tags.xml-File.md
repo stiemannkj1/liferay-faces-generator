@@ -44,4 +44,4 @@ Here is an example `new-tags.xml` file:
 
 The `tags.xml` file is required to be of the form `${shortNamespace}-tags.xml` (e.g. `alloy-tags.xml`).
 
-The generator accepts certain elements as `taglib-extesion`s, `tag-extesions`s, and `attribute-extesions`s in order to obtain all the necessary information for generation and to reduce duplication. See each extension page for more details.
+The generator accepts certain elements as [`taglib-extesion`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/taglib-extensions), [`tag-extesions`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/tag-extensions), and [`attribute-extesions`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/attribute-extensions) in order to obtain all the necessary information for generation and to reduce duplication. See each extension page for more details.

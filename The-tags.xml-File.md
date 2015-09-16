@@ -45,3 +45,12 @@ Here is an example `new-tags.xml` file:
 The `tags.xml` file is required to be of the form `${shortNamespace}-tags.xml` (e.g. `alloy-tags.xml`).
 
 The generator accepts certain elements as [`taglib-extesion`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/taglib-extensions), [`tag-extesions`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Tag-Element#tag-extensions), and [`attribute-extesions`s](https://github.com/stiemannkj1/liferay-faces-generator/wiki/attribute-extensions) in order to obtain all the necessary information for generation and to reduce duplication. See each extension page for more details.
+
+## Other Examples
+
+The Liferay Faces Projects contain several examples of `tags.xml` pages:
+
+- [`alloy-tags.xml`](https://github.com/liferay/liferay-faces-alloy/blob/master/alloy/alloy-tags.xml)
+- [`bridge-tags.xml`](https://github.com/liferay/liferay-faces-bridge-impl/blob/master/bridge-impl/bridge-tags.xml)
+- [`portal-tags.xml`](https://github.com/liferay/liferay-faces-portal/blob/master/portal/portal-tags.xml)
+- [`portlet-tags.xml`](https://github.com/liferay/liferay-faces-bridge-impl/blob/master/bridge-impl/portlet-tags.xml)

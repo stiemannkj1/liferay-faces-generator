@@ -1,6 +1,6 @@
-# The `tag.xml` File
+# The `tags.xml` File
 
-The `tag.xml` file is designed to be as similar to a JSF `taglib.xml` file as possible, while adding some extra features to help component developers. From the `tags.xml` file, the generator can generate:
+The `tags.xml` file is designed to be as similar to a JSF `taglib.xml` file as possible, while adding some extra features to help component developers. From the `tags.xml` file, the generator can generate:
 
 - The `Component.java` file
 - The `ComponentBase.java` file

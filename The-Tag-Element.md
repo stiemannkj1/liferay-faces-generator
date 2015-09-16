@@ -45,7 +45,7 @@ The `tag` element is designed to contain all the information that is useful for 
 
 | `tag` Child Element Name | Description | Required | Default Value |
 |--------------------------|-------------|----------|---------------|
-| `attribute` | The `<attribute>` element specifies one of the attributes of the tag. A tag may have many `attribute`s. See [*The `attribute` Element* page]() for more details. | No | None |
+| `attribute` | The `<attribute>` element specifies one of the attributes of the tag. A tag may have many `attribute`s. See [*The `attribute` Element* page](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Attribute-Element) for more details. | No | None |
 | `description` | The `<description>` element specifies a description of the tag. | No | None |
 | `handler-class` | The `<handler-class>` element specifies the fully qualified class name of the tag's tag handler. | No | None |
 | `tag-extension` | The `<tag-extension>` element specifies information needed to generate the component. See [the *`tag-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Tag-Element#tag-extensions) for more details. | Yes | None |

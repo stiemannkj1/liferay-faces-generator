@@ -10,7 +10,7 @@
 | `renderer- parent- class` | The `<renderer-parent-class>` element specifies the parent class of the generated component's renderer base class. | No | `javax.faces. render.Renderer` |
 | `since` | The `<since>` element specifies the first version in which the tag was available for the purpose of generating [`<vdldoc:since>`](https://github.com/omnifaces/vdldoc/wiki/vdldoc:since) documentation. | No | If the `taglib-extension` `default-since` element has been specified, then `since` will default to the value of `default-since`. If not, it defaults to `1.0`. |
 
-## [Liferay Faces Alloy](https://github.com/liferay/liferay-faces-alloy) Specific `tag-extension`s
+## `tag-extension`s for [Liferay Faces Alloy Components](https://github.com/liferay/liferay-faces-alloy/tree/master/alloy/src/main/java/com/liferay/faces/alloy/component)
 
 | `tag- extension` Name | Description | Required | Default Value |
 |-----------------------|-------------|----------|---------------|

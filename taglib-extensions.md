@@ -1,7 +1,7 @@
 # `taglib-extension`s
 
-| `taglib-extension` Name | Description | Required | Default Value |
-|-------------------------|-------------|----------|---------------|
+| `taglib- extension` Name | Description | Required | Default Value |
+|--------------------------|-------------|----------|---------------|
 | `authors` | The `<authors>` element specifies a comma separated list of the author names that will be generated in each component's JavaDoc header. | No | None |
 | `component- internal- output- directory` | The `<component-internal-output-directory>` element specifies the full path to the folder where generated `ComponentRenderer.java` and `ComponentRendererBase.java` files will be output. | No | Defaults to the value of `component- output- directory`. |
 | `component- output- directory` | The `<component-output-directory>` element specifies the full path to the folder where generated `Component.java` and `ComponentBase.java` files will be output. | Yes | None |

@@ -6,7 +6,7 @@ The `tags.xml` file is designed to be as similar to a JSF `taglib.xml` file as p
 - The `ComponentBase.java` file
 - The `ComponentRenderer.java` file
 - The `ComponentRendererBase.java` file
-- And the components `taglib.xml` documentation
+- And the component's `taglib.xml` documentation
 
 Here is an example `new-tags.xml` file:
 

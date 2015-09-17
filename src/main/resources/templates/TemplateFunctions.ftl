@@ -1,4 +1,14 @@
 <#compress>
+<#function get_attribute_type attribute>
+	<#local attribute_type = "java.lang.Object" />
+	<#if attribute["method-signature"][0]??>
+		<#local attribute_type = "javax.el.MethodExpression" />
+	<#elseif attribute["type"][0]?? />
+		<#local attribute_type = remove_CDATA(attribute["type"]) />
+	</#if>
+	<#return attribute_type />
+</#function>
+
 <#function get_component_package tag_name>
 	<#local tag_name = tag_name?trim />
 	<#return "com.liferay.faces.${shortNamespace}.component.${tag_name?lower_case}" />

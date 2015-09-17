@@ -58,7 +58,7 @@
 
 <#function get_getter_method_prefix attribute>
 	<#local getter_method_prefix = "get" />
-	<#if attribute["type"][0]?? && remove_CDATA(attribute["type"]) == "boolean">
+	<#if get_attribute_type(attribute) == "boolean">
 		<#local getter_method_prefix = "is" />
 	</#if>
 	<#return getter_method_prefix />
@@ -145,16 +145,13 @@
 </#function>
 
 <#function get_java_wrapper_type attribute>
-	<#local java_wrapper_type = "java.lang.Object" />
-	<#if attribute["method-signature"][0]??>
-		<#local java_wrapper_type = "javax.el.MethodExpression" />
-	<#elseif attribute["type"][0]??>
-		<#local java_wrapper_type = remove_CDATA(attribute["type"])?cap_first />
-		<#if remove_CDATA(attribute["type"]) == "int">
-			<#local java_wrapper_type = "Integer" />
-		<#elseif remove_CDATA(attribute["type"])?contains(".") || remove_CDATA(attribute["type"])?contains("[]")>
-			<#local java_wrapper_type = remove_CDATA(attribute["type"]) />
-		</#if>
+	<#local type = remove_CDATA(get_attribute_type(attribute)) />
+	<#if type == "int">
+		<#local java_wrapper_type = "Integer" />
+	<#elseif type?contains(".") || type?contains("[]")>
+		<#local java_wrapper_type = type />
+	<#else>
+		<#local java_wrapper_type = type?cap_first />
 	</#if>
 	<#return java_wrapper_type />
 </#function>

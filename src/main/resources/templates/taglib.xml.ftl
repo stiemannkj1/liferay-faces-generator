@@ -67,7 +67,7 @@
 			<#if attribute["method-signature"][0]??>
 			<method-signature>${format_java_types(attribute["method-signature"])}</method-signature>
 			<#else>
-			<type>${format_java_types(attribute["type"])}</type>
+			<type>${format_java_types(get_attribute_type(attribute))}</type>
 			</#if>
 		</attribute>
 		</#list>

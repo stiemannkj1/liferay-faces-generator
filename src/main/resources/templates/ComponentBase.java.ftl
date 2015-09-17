@@ -14,13 +14,8 @@
 </#function>
 
 <#function get_unprefixed_type attribute>
-	<#local unprefixed_type = "Object" />
-	<#if attribute["method-signature"][0]??>
-		<#local unprefixed_type = "javax.el.MethodExpression" />
-	<#elseif attribute["type"][0]??>
-		<#local unprefixed_type = remove_CDATA(attribute["type"])?remove_beginning("java.lang.") />
-	</#if>
-	<#return unprefixed_type />
+	<#local type = get_attribute_type(attribute) />
+	<#return remove_CDATA(type)?remove_beginning("java.lang.") />
 </#function>
 
 <#function has_attribute tag attribute_name>
@@ -149,7 +144,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	<#if attribute_is(attribute, "override", false)>
 	@Override
 	</#if>
-	<#if attribute["type"][0]?? && remove_CDATA(attribute["type"])?contains("<")>
+	<#if get_attribute_type(attribute)?contains("<")>
 	@SuppressWarnings("unchecked")
 	</#if>
 	public ${get_unprefixed_type(attribute)} ${get_getter_method_prefix(attribute)}${get_java_bean_property_name(attribute["name"])}() {

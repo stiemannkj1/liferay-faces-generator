@@ -43,6 +43,7 @@ The `attribute` element is designed to contain all the information necessary to 
 | `attribute-extension` | The `<attribute-extension>` element specifies information needed to generate the attribute. See [the *`attribute-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Attribute-Element#attribute-extensions) for more details. | No | None |
 | `description` | The `<description>` element specifies a description of the attribute. | No | None |
 | `name` | The `<name>` element specifies the name of the attribute. | Yes | None |
+| `required` | The `<required>` element specifies whether the attribute is required or not. | No | `false` |
 | `type` | The `<type>` element specifies the fully qualified type of the attribute | No | `java.lang.Object` |
 
 ### `attribute-extension`s

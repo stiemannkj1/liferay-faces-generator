@@ -1,6 +1,16 @@
 <#include "./ComponentTemplateFunctions.ftl">
 <#compress>
+<#macro generate_javadoc attribute>
+	/**
+	 * @deprecated ${attribute["attribute-extension/deprecated"]}
+	 */
+</#macro>
+
 <#macro generate_setter attribute tag>
+	<#if attribute["attribute-extension/deprecated"][0]??>
+	<@generate_javadoc attribute />
+	@Deprecated
+	</#if>
 	<#if attribute_is(attribute, "override", false)>
 	@Override
 	</#if>
@@ -100,6 +110,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	<#list tag["attribute"]?sort_by("name") as attribute>
 	<#if attribute["name"] == "label" && attribute_is(attribute, "default-to-component-label", false)>
 
+	<#if attribute["attribute-extension/deprecated"][0]??>
+	<@generate_javadoc attribute />
+	@Deprecated
+	</#if>
 	<#if attribute_is(attribute, "override", false) || attribute_is(attribute, "inherited", false)>
 	@Override
 	</#if>
@@ -124,6 +138,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif attribute["name"] == "styleClass">
 
+	<#if attribute["attribute-extension/deprecated"][0]??>
+	<@generate_javadoc attribute />
+	@Deprecated
+	</#if>
 	<#if attribute_is(attribute, "override", false) || attribute_is(attribute, "inherited", false)>
 	@Override
 	</#if>
@@ -141,6 +159,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif !attribute_is(attribute, "inherited", false)>
 
+	<#if attribute["attribute-extension/deprecated"][0]??>
+	<@generate_javadoc attribute />
+	@Deprecated
+	</#if>
 	<#if attribute_is(attribute, "override", false)>
 	@Override
 	</#if>

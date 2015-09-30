@@ -60,7 +60,7 @@
 		<#list tag["attribute"]?sort_by("name") as attribute>
 		<attribute>
 			<#if attribute["description"][0]??>
-			<description><![CDATA[${format_description(attribute["description"])}<#if !(attribute["description"]?contains("default") || attribute["description"]?contains("Default")) && attribute["attribute-extension"][0]?? && attribute["attribute-extension/default-value"][0]??> The default value is <code>${attribute["attribute-extension/default-value"]}</code>.</#if><#if attribute["attribute-extension"][0]?? && attribute["attribute-extension/since"][0]??> Since: ${attribute["attribute-extension/since"]}</#if>]]></description>
+			<description><![CDATA[<#if attribute["attribute-extension/deprecated"][0]??><strong>Deprecated.</strong> ${attribute["attribute-extension/deprecated"]} </#if>${format_description(attribute["description"])}<#if !(attribute["description"]?contains("default") || attribute["description"]?contains("Default")) && attribute["attribute-extension"][0]?? && attribute["attribute-extension/default-value"][0]??> The default value is <code>${attribute["attribute-extension/default-value"]}</code>.</#if><#if attribute["attribute-extension"][0]?? && attribute["attribute-extension/since"][0]??> Since: ${attribute["attribute-extension/since"]}</#if>]]></description>
 			</#if>
 			<name>${attribute["name"]}</name>
 			<required><#if attribute["required"][0]??>${attribute["required"]}<#else>false</#if></required>

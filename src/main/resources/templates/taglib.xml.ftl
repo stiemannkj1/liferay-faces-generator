@@ -60,7 +60,7 @@
 		<#list tag["attribute"]?sort_by("name") as attribute>
 		<attribute>
 			<#if attribute["description"][0]??>
-			<description><![CDATA[<#if attribute["attribute-extension/deprecated"][0]??><strong>Deprecated.</strong> ${attribute["attribute-extension/deprecated"]} </#if>${format_description(attribute["description"])}<#if !(attribute["description"]?contains("default") || attribute["description"]?contains("Default")) && attribute["attribute-extension"][0]?? && attribute["attribute-extension/default-value"][0]??> The default value is <code>${attribute["attribute-extension/default-value"]}</code>.</#if><#if attribute["attribute-extension"][0]?? && attribute["attribute-extension/since"][0]??> Since: ${attribute["attribute-extension/since"]}</#if>]]></description>
+			<description><![CDATA[<#if has_attribute_extension(attribute, "deprecated")><strong>Deprecated.</strong> ${attribute["attribute-extension/deprecated"]} </#if>${format_description(attribute["description"])}<#if !(attribute["description"]?contains("default") || attribute["description"]?contains("Default")) && has_attribute_extension(attribute, "default-value")> The default value is <code>${attribute["attribute-extension/default-value"]}</code>.</#if><#if has_attribute_extension(attribute, "since")> Since: ${attribute["attribute-extension/since"]}</#if>]]></description>
 			</#if>
 			<name>${attribute["name"]}</name>
 			<required><#if attribute["required"][0]??>${attribute["required"]}<#else>false</#if></required>
@@ -73,7 +73,7 @@
 		</#list>
 		<tag-extension>
 			<vdldoc:example-url>http://www.liferayfaces.org/web/guest/showcase/-/component/${shortNamespace?lower_case}/${tag["tag-name"]?lower_case}/general</vdldoc:example-url>
-			<vdldoc:since><#if tag["tag-extension/since"][0]??>${tag["tag-extension/since"]}<#else>${defaultSince}</#if></vdldoc:since>
+			<vdldoc:since>${get_tag_extension(tag, "since", defaultSince)}</vdldoc:since>
 		</tag-extension>
 	</tag>
 	</#if>

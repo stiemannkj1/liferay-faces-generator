@@ -13,7 +13,7 @@ import javax.annotation.Generated;
 <#if get_unqualified_class_name(get_renderer_parent_class(tag)) != "${tag[\"tag-name\"]?cap_first}RendererBase">
 import ${get_renderer_parent_class(tag)?keep_before("<")};
 </#if>
-<#if get_tag_extension(tag, "delegate-renderer-type")?has_content>
+<#if has_tag_extension(tag, "delegate-renderer-type")>
 
 import ${get_component_package(tag["tag-name"])}.${tag["tag-name"]?cap_first};
 </#if>
@@ -35,7 +35,7 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ext
 	<#assign first = false>
 	</#if>
 	</#list>
-<#if get_tag_extension(tag, "delegate-renderer-type")?has_content>
+<#if has_tag_extension(tag, "delegate-renderer-type")>
 
 <@generate_delegate_getters tag />
 </#if>

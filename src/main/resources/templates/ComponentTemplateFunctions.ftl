@@ -43,8 +43,8 @@
 </#if>
 </#macro>
 
-<#function attribute_is attribute extension default>
-	<#return model_is(attribute, extension, default, "attribute") />
+<#function attribute_is attribute extension_name default>
+	<#return (get_attribute_extension(attribute, extension_name, default?c)?lower_case == "true") />
 </#function>
 
 <#-- If the class extends from a class with the same name, it must use the fully qualified name. -->
@@ -156,11 +156,4 @@
 	<#return java_wrapper_type />
 </#function>
 
-<#function get_tag_extension tag extension_name default="">
-	<#local extension_value = default />
-	<#if tag["tag-extension"][0]?? && tag["tag-extension/${extension_name}"][0]??>
-		<#local extension_value = remove_CDATA(tag["tag-extension/${extension_name}"]) />
-	</#if>
-	<#return extension_value />
-</#function>
 </#compress>

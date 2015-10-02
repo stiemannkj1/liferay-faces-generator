@@ -3,20 +3,20 @@
 <#compress>
 <#function get_alloy_ui_name attribute>
 	<#local alloy_ui_name = attribute["name"] />
-	<#if attribute["attribute-extension"][0]?? && attribute["attribute-extension/alloy-ui-name"][0]??>
+	<#if has_attribute_extension(attribute, "alloy-ui-name")>
 		<#local alloy_ui_name = attribute["attribute-extension/alloy-ui-name"] />
 	</#if>
 	<#return alloy_ui_name /> 
 </#function>
 
 <#function get_alloy_ui_type attribute>
-	<#if !attribute["attribute-extension"][0]?? || !attribute["attribute-extension/alloy-ui-type"][0]??>
+	<#if has_attribute_extension(attribute, "alloy-ui-type")>
+		<#local alloy_ui_type = attribute["attribute-extension/alloy-ui-type"] />
+	<#else>
 		<#local alloy_ui_type = get_java_wrapper_type(attribute)?remove_beginning("java.lang.") />
 		<#if alloy_ui_type != "Boolean" && alloy_ui_type != "Integer" && alloy_ui_type != "String" >
 			<#local alloy_ui_type = "Object" />
 		</#if>
-	<#else>
-		<#local alloy_ui_type = attribute["attribute-extension/alloy-ui-type"] />
 	</#if>
 	<#return alloy_ui_type />
 </#function>
@@ -87,7 +87,7 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 
 	@Override
 	public String getAlloyClassName(FacesContext facesContext, UIComponent uiComponent) {
-		return "${get_tag_extension(tag, "alloy-ui-name", "${tag[\"tag-name\"]?cap_first}")}";
+		return "${get_tag_extension(tag, "alloy-ui-name", tag["tag-name"]?cap_first)}";
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter, ${tag["tag-name"]?cap_first} ${tag["tag-name"]}, boolean first) throws IOException {
 		// no-op
 	}
-<#if get_tag_extension(tag, "delegate-renderer-type")?has_content>
+<#if has_tag_extension(tag, "delegate-renderer-type")>
 
 <@generate_delegate_getters tag />
 </#if>

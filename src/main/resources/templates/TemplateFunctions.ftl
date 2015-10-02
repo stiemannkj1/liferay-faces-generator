@@ -14,23 +14,43 @@
 	<#return "com.liferay.faces.${shortNamespace}.component.${tag_name?lower_case}" />
 </#function>
 
+<#function get_attribute_extension attribute extension_name default="">
+	<#return get_element_extension(attribute, "attribute", extension_name, default) />
+</#function>
+
+<#function get_element_extension element element_type extension_name default="">
+	<#local extension_value = default />
+	<#if has_extension(element, element_type, extension_name)>
+		<#local extension_value = remove_CDATA(element["${element_type}-extension/${extension_name}"]) />
+	</#if>
+	<#return extension_value />
+</#function>
+
+<#function get_tag_extension tag extension_name default="">
+	<#return get_element_extension(tag, "tag", extension_name, default) />
+</#function>
+
 <#function get_unqualified_class_name qualified_class_name>
 	<#return qualified_class_name?keep_after_last(qualified_class_name?keep_before("<")?keep_before_last(".") + ".") />
 </#function>
 
-<#function model_is model extension default model_type>
-	<#local model_is = default /> 
-	<#if model["${model_type}-extension"][0]?? && model["${model_type}-extension/${extension}"][0]??>
-		<#local model_is = (model["${model_type}-extension/${extension}"] == "true") />
-	</#if>
-	<#return model_is />
+<#function has_attribute_extension attribute extension_name>
+	<#return has_extension(attribute, "attribute", extension_name) />
+</#function>
+
+<#function has_extension element element_type extension_name>
+	<#return element["${element_type}-extension"][0]?? && element["${element_type}-extension/${extension_name}"][0]?? />
+</#function>
+
+<#function has_tag_extension tag extension_name>
+	<#return has_extension(tag, "tag", extension_name) />
 </#function>
 
 <#function remove_CDATA string_with_CDATA>
 	<#return string_with_CDATA?trim?remove_beginning("<![CDATA[")?remove_ending("]]>") />
 </#function>
 
-<#function tag_is tag extension default>
-	<#return model_is(tag, extension, default, "tag") />
+<#function tag_is tag extension_name default>
+	<#return (get_tag_extension(tag, extension_name, default?c)?lower_case == "true") />
 </#function>
 </#compress>

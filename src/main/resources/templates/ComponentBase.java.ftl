@@ -110,7 +110,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	<#list tag["attribute"]?sort_by("name") as attribute>
 	<#if attribute["name"] == "label" && attribute_is(attribute, "default-to-component-label", false)>
 
-	<#if attribute["attribute-extension/deprecated"][0]??>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
 	@Deprecated
 	</#if>
@@ -138,7 +138,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif attribute["name"] == "styleClass">
 
-	<#if attribute["attribute-extension/deprecated"][0]??>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
 	@Deprecated
 	</#if>
@@ -151,7 +151,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 		// super.getStyleClass() may return the styleClass name of the super class.
 		String styleClass = (String) getStateHelper().eval(<#if !attribute_is(attribute, "inherited", false)>${tag["tag-name"]?cap_first}</#if>PropertyKeys.styleClass, null);
 
-		return com.liferay.faces.util.component.ComponentUtil.concatCssClasses(styleClass, "${shortNamespace}-${tag["tag-name"]?replace("([A-Z]+)", "-$1", "r")?lower_case}"<#if tag["tag-extension"][0]?? && tag["tag-extension/extra-style-classes"][0]??>, "${tag["tag-extension/extra-style-classes"]}"</#if>);
+		return com.liferay.faces.util.component.ComponentUtil.concatCssClasses(styleClass, "${shortNamespace}-${tag["tag-name"]?replace("([A-Z]+)", "-$1", "r")?lower_case}"<#if has_tag_extension(tag, "extra-style-classes")>, "${tag["tag-extension/extra-style-classes"]}"</#if>);
 	}
 	<#if !attribute_is(attribute, "inherited", false)>
 
@@ -159,7 +159,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif !attribute_is(attribute, "inherited", false)>
 
-	<#if attribute["attribute-extension/deprecated"][0]??>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
 	@Deprecated
 	</#if>
@@ -170,7 +170,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	@SuppressWarnings("unchecked")
 	</#if>
 	public ${get_unprefixed_type(attribute)} ${get_getter_method_prefix(attribute)}${get_java_bean_property_name(attribute["name"])}() {
-		return (${get_java_wrapper_type(attribute)?remove_beginning("java.lang.")}) getStateHelper().eval(${tag["tag-name"]?cap_first}PropertyKeys.${get_java_safe_name(attribute["name"])}, <#if attribute["attribute-extension"][0]?? && attribute["attribute-extension/default-value"][0]??>${attribute["attribute-extension/default-value"]}<#else>null</#if>);
+		return (${get_java_wrapper_type(attribute)?remove_beginning("java.lang.")}) getStateHelper().eval(${tag["tag-name"]?cap_first}PropertyKeys.${get_java_safe_name(attribute["name"])}, ${get_attribute_extension(attribute, "default-value", "null")});
 	}
 
 	<@generate_setter attribute=attribute tag=tag />

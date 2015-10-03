@@ -119,7 +119,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	public String getLabel() {
 
-		String label = <#if attribute_is(attribute, "inherited", false)>super.getLabel();<#else>(String) getStateHelper().eval(${tag["tag-name"]?cap_first}PropertyKeys.label, null);</#if>
+		String label = <#if attribute_is(attribute, "inherited", false)>super.getLabel();<#else>(String) getStateHelper().eval(${tag["tag-name"]?cap_first}PropertyKeys.label, ${get_attribute_extension(attribute, "default-value", "null")});</#if>
 
 		if (label == null) {
 
@@ -149,7 +149,7 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 
 		// getStateHelper().eval(<#if !attribute_is(attribute, "inherited", false)>${tag["tag-name"]?cap_first}</#if>PropertyKeys.styleClass, null) is called because
 		// super.getStyleClass() may return the styleClass name of the super class.
-		String styleClass = (String) getStateHelper().eval(<#if !attribute_is(attribute, "inherited", false)>${tag["tag-name"]?cap_first}</#if>PropertyKeys.styleClass, null);
+		String styleClass = (String) getStateHelper().eval(<#if !attribute_is(attribute, "inherited", false)>${tag["tag-name"]?cap_first}</#if>PropertyKeys.styleClass, ${get_attribute_extension(attribute, "default-value", "null")});
 
 		return com.liferay.faces.util.component.ComponentUtil.concatCssClasses(styleClass, "${shortNamespace}-${tag["tag-name"]?replace("([A-Z]+)", "-$1", "r")?lower_case}"<#if has_tag_extension(tag, "extra-style-classes")>, "${tag["tag-extension/extra-style-classes"]}"</#if>);
 	}

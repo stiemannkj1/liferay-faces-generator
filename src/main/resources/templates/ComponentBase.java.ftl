@@ -19,8 +19,10 @@
 	}
 </#macro>
 
+<#assign default_parent_class = "javax.faces.component.UIComponentBase" />
+
 <#function get_parent_class tag>
-	<#return get_tag_extension(tag, "parent-class", "javax.faces.component.UIComponentBase") />
+	<#return get_tag_extension(tag, "parent-class", "${default_parent_class}") />
 </#function>
 
 <#function get_unprefixed_type attribute>
@@ -37,6 +39,10 @@
 		</#if>
 	</#list>
 	<#return has_attribute />
+</#function>
+
+<#function has_default_parent_class tag>
+	<#return get_parent_class(tag) == "${default_parent_class}" />
 </#function>
 
 <#function has_non_inherited_attribute tag attribute_name>
@@ -79,6 +85,9 @@ import com.liferay.faces.util.component.Styleable;
 public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_class_name(get_parent_class(tag), "${tag[\"tag-name\"]?cap_first}Base")}<#if clientComponent || styleable> implements<#if styleable> Styleable</#if><#if styleable && clientComponent>,</#if><#if clientComponent> ClientComponent</#if></#if> {
 
 	// Public Constants
+	<#if has_default_parent_class(tag)>
+	public static final String COMPONENT_FAMILY = "${get_component_package(tag["tag-name"])}";
+	</#if>
 	public static final String COMPONENT_TYPE = "${get_component_package(tag["tag-name"])}.${tag["tag-name"]?cap_first}";
 	<#if tag_is(tag, "generate-renderer", true)>
 	public static final String RENDERER_TYPE = "${get_component_package(tag["tag-name"])}.${tag["tag-name"]?cap_first}Renderer";
@@ -107,6 +116,13 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 		super();
 		setRendererType(<#if tag_is(tag, "generate-renderer", true)>RENDERER_TYPE<#else>""</#if>);
 	}
+	<#if has_default_parent_class(tag)>
+
+	@Override
+	public String getFamily() {
+		return COMPONENT_FAMILY;
+	}
+	</#if>
 	<#list tag["attribute"]?sort_by("name") as attribute>
 	<#if attribute["name"] == "label" && attribute_is(attribute, "default-to-component-label", false)>
 

@@ -1,8 +1,5 @@
 <#include "./TemplateFunctions.ftl"/>
 <#compress>
-<#function format_description description>
-	<#return remove_CDATA(description)?replace("\n|\t", "", "r") />
-</#function>
 
 <#function format_java_types string_with_java_types>
 	<#return remove_CDATA(string_with_java_types?xml)>

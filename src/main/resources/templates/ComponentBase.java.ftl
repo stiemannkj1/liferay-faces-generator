@@ -2,13 +2,23 @@
 <#compress>
 <#macro generate_javadoc attribute>
 	/**
-	 * @deprecated ${attribute["attribute-extension/deprecated"]}
+	<#if attribute["description"][0]??>
+	 * <code>${attribute["name"]}</code> attribute description:
+	 * <br /><br />
+	 * ${format_description(attribute["description"])}
+	</#if>
+	<#if has_attribute_extension(attribute, "deprecated")>
+	 *
+	 * @deprecated ${get_attribute_extension(attribute, "deprecated")}
+	</#if>
 	 */
 </#macro>
 
 <#macro generate_setter attribute tag>
-	<#if attribute["attribute-extension/deprecated"][0]??>
+	<#if attribute["description"][0]?? || has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
+	</#if>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	@Deprecated
 	</#if>
 	<#if attribute_is(attribute, "override", false)>
@@ -126,8 +136,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	<#list tag["attribute"]?sort_by("name") as attribute>
 	<#if attribute["name"] == "label" && attribute_is(attribute, "default-to-component-label", false)>
 
-	<#if has_attribute_extension(attribute, "deprecated")>
+	<#if attribute["description"][0]?? || has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
+	</#if>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	@Deprecated
 	</#if>
 	<#if attribute_is(attribute, "override", false) || attribute_is(attribute, "inherited", false)>
@@ -154,8 +166,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif attribute["name"] == "styleClass">
 
-	<#if has_attribute_extension(attribute, "deprecated")>
+	<#if attribute["description"][0]?? || has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
+	</#if>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	@Deprecated
 	</#if>
 	<#if attribute_is(attribute, "override", false) || attribute_is(attribute, "inherited", false)>
@@ -175,8 +189,10 @@ public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_cla
 	</#if>
 	<#elseif !attribute_is(attribute, "inherited", false)>
 
-	<#if has_attribute_extension(attribute, "deprecated")>
+	<#if attribute["description"][0]?? || has_attribute_extension(attribute, "deprecated")>
 	<@generate_javadoc attribute />
+	</#if>
+	<#if has_attribute_extension(attribute, "deprecated")>
 	@Deprecated
 	</#if>
 	<#if attribute_is(attribute, "override", false)>

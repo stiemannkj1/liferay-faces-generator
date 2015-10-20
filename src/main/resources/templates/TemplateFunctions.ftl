@@ -1,4 +1,8 @@
 <#compress>
+<#function format_description description>
+	<#return remove_CDATA(description)?replace("\n|\t", "", "r") />
+</#function>
+
 <#function get_attribute_type attribute>
 	<#local attribute_type = "java.lang.Object" />
 	<#if attribute["method-signature"][0]??>

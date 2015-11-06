@@ -311,6 +311,19 @@
 		</tag-extension>
 	</tag>
 	<tag>
+		<tag-name>immediate</tag-name>
+		<attribute>
+			<description><![CDATA[When this flag is true, this component's value must be converted and validated (immediately) during the Apply Request Values phase, instead of (later) during the PROCESS_VALIDATIONS phase.]]></description>
+			<name>immediate</name>
+			<required>false</required>
+			<type><![CDATA[java.lang.Boolean]]></type>
+		</attribute>
+		<tag-extension>
+			<generate-java>false</generate-java>
+			<generate-taglib-xml>false</generate-taglib-xml>
+		</tag-extension>
+	</tag>
+	<tag>
 		<tag-name>facesMessageLabelTaglibXMLOnly</tag-name>
 		<attribute>
 			<attribute-extension>
@@ -488,20 +501,8 @@
 void actionListener(javax.faces.event.ActionEvent)
 ]]></method-signature>
 		</attribute>
-		<attribute>
-			<description><![CDATA[When this flag is true, this component's value must be converted and validated (immediately) during the Apply Request Values phase, instead of (later) during the PROCESS_VALIDATIONS phase.]]></description>
-			<name>immediate</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
-		</attribute>
-		<attribute>
-			<description><![CDATA[The value of this component, which is typically bound via EL to a model bean property.]]></description>
-			<name>value</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.Object]]></type>
-		</attribute>
 		<tag-extension>
-			<extends-tags>htmlAccessibilityEvents uiComponentBase</extends-tags>
+			<extends-tags>htmlAccessibilityEvents immediate uiComponentBase value</extends-tags>
 			<generate-java>false</generate-java>
 			<generate-taglib-xml>false</generate-taglib-xml>
 		</tag-extension>
@@ -557,12 +558,6 @@ void actionListener(javax.faces.event.ActionEvent)
 			<type><![CDATA[java.lang.String]]></type>
 		</attribute>
 		<attribute>
-			<description><![CDATA[When this flag is true, this component's value must be converted and validated (immediately) during the Apply Request Values phase, instead of (later) during the PROCESS_VALIDATIONS phase.]]></description>
-			<name>immediate</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
-		</attribute>
-		<attribute>
 			<description><![CDATA[When this flag is true, and a value has not been specified for this component, then the PROCESS_VALIDATIONS phase will fail and a FacesMessage will be added to the FacesContext for this component.]]></description>
 			<name>required</name>
 			<required>false</required>
@@ -598,7 +593,7 @@ void valueChange(javax.faces.event.ValueChangeEvent)
 ]]></method-signature>
 		</attribute>
 		<tag-extension>
-			<extends-tags>uiOutput</extends-tags>
+			<extends-tags>immediate uiOutput</extends-tags>
 			<generate-java>false</generate-java>
 			<generate-taglib-xml>false</generate-taglib-xml>
 		</tag-extension>
@@ -643,14 +638,8 @@ void valueChange(javax.faces.event.ValueChangeEvent)
 			<required>false</required>
 			<type><![CDATA[javax.faces.convert.Converter]]></type>
 		</attribute>
-		<attribute>
-			<description><![CDATA[The value of this component, which is typically bound via EL to a model bean property.]]></description>
-			<name>value</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.Object]]></type>
-		</attribute>
 		<tag-extension>
-			<extends-tags>uiComponentBase</extends-tags>
+			<extends-tags>uiComponentBase value</extends-tags>
 			<generate-java>false</generate-java>
 			<generate-taglib-xml>false</generate-taglib-xml>
 		</tag-extension>

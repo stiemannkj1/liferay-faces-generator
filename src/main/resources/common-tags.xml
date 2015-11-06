@@ -27,6 +27,19 @@
 		</tag-extension>
 	</tag>
 	<tag>
+		<tag-name>binding</tag-name>
+		<attribute>
+			<description><![CDATA[An EL expression that binds the Java reference to this component in the component tree to a bean property.]]></description>
+			<name>binding</name>
+			<required>false</required>
+			<type><![CDATA[javax.faces.component.UIComponent]]></type>
+		</attribute>
+		<tag-extension>
+			<generate-java>false</generate-java>
+			<generate-taglib-xml>false</generate-taglib-xml>
+		</tag-extension>
+	</tag>
+	<tag>
 		<tag-name>clientComponent</tag-name>
 		<attribute>
 			<attribute-extension>
@@ -34,6 +47,19 @@
 			</attribute-extension>
 			<description><![CDATA[The key name that can be used to reference the component on the client.]]></description>
 			<name>clientKey</name>
+			<required>false</required>
+			<type><![CDATA[java.lang.String]]></type>
+		</attribute>
+		<tag-extension>
+			<generate-java>false</generate-java>
+			<generate-taglib-xml>false</generate-taglib-xml>
+		</tag-extension>
+	</tag>
+	<tag>
+		<tag-name>dir</tag-name>
+		<attribute>
+			<description><![CDATA[HTML passthrough attribute specifying the reading direction for the element For example, right to left (RTL), or left to right (LTR).]]></description>
+			<name>dir</name>
 			<required>false</required>
 			<type><![CDATA[java.lang.String]]></type>
 		</attribute>
@@ -235,31 +261,13 @@
 	<tag>
 		<tag-name>htmlPassthrough</tag-name>
 		<attribute>
-			<description><![CDATA[HTML passthrough attribute specifying the reading direction for the element For example, right to left (RTL), or left to right (LTR).]]></description>
-			<name>dir</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
-		<attribute>
-			<description><![CDATA[HTML passthrough attribute specifying the language code used in the element.]]></description>
-			<name>lang</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
-		<attribute>
 			<description><![CDATA[HTML passthrough attribute specifying the various WAI-ARIA roles that the element is used for.]]></description>
 			<name>role</name>
 			<required>false</required>
 			<type><![CDATA[java.lang.String]]></type>
 		</attribute>
-		<attribute>
-			<description><![CDATA[HTML passthrough attribute specifying the title of the element.]]></description>
-			<name>title</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
 		<tag-extension>
-			<extends-tags>styleable uiComponentBase</extends-tags>
+			<extends-tags>dir lang styleable title uiComponentBase</extends-tags>
 			<generate-java>false</generate-java>
 			<generate-taglib-xml>false</generate-taglib-xml>
 		</tag-extension>
@@ -429,6 +437,19 @@
 		</tag-extension>
 	</tag>
 	<tag>
+		<tag-name>lang</tag-name>
+		<attribute>
+			<description><![CDATA[HTML passthrough attribute specifying the language code used in the element.]]></description>
+			<name>lang</name>
+			<required>false</required>
+			<type><![CDATA[java.lang.String]]></type>
+		</attribute>
+		<tag-extension>
+			<generate-java>false</generate-java>
+			<generate-taglib-xml>false</generate-taglib-xml>
+		</tag-extension>
+	</tag>
+	<tag>
 		<tag-name>mouseDOMEvents</tag-name>
 		<attribute>
 			<description><![CDATA[Javascript to execute when this component is clicked.]]></description>
@@ -524,6 +545,19 @@
 		</tag-extension>
 	</tag>
 	<tag>
+		<tag-name>title</tag-name>
+		<attribute>
+			<description><![CDATA[HTML passthrough attribute specifying the title of the element.]]></description>
+			<name>title</name>
+			<required>false</required>
+			<type><![CDATA[java.lang.String]]></type>
+		</attribute>
+		<tag-extension>
+			<generate-java>false</generate-java>
+			<generate-taglib-xml>false</generate-taglib-xml>
+		</tag-extension>
+	</tag>
+	<tag>
 		<tag-name>uiCommand</tag-name>
 		<attribute>
 			<description><![CDATA[A method that is executed when this component is clicked. The method must be <code>public</code>, return an <code>Object</code>, and take no arguments. The <code>toString()</code> method of the returned object is used to determine where to navigate (if at all) after the action has been performed.]]></description>
@@ -560,12 +594,6 @@ void actionListener(javax.faces.event.ActionEvent)
 	<tag>
 		<tag-name>uiComponentBase</tag-name>
 		<attribute>
-			<description><![CDATA[An EL expression that binds the Java reference to this component in the component tree to a bean property.]]></description>
-			<name>binding</name>
-			<required>false</required>
-			<type><![CDATA[javax.faces.component.UIComponent]]></type>
-		</attribute>
-		<attribute>
 			<description><![CDATA[A unique identifier for this component.]]></description>
 			<name>id</name>
 			<required>false</required>
@@ -581,6 +609,7 @@ void actionListener(javax.faces.event.ActionEvent)
 			<type><![CDATA[boolean]]></type>
 		</attribute>
 		<tag-extension>
+			<extends-tags>binding</extends-tags>
 			<generate-java>false</generate-java>
 			<generate-taglib-xml>false</generate-taglib-xml>
 		</tag-extension>

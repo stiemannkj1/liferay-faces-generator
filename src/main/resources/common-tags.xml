@@ -352,31 +352,6 @@
 		</tag-extension>
 	</tag>
 	<tag>
-		<tag-name>keyboardDOMEvents</tag-name>
-		<attribute>
-			<description><![CDATA[Javascript to execute when a keydown event occurs.]]></description>
-			<name>onkeydown</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
-		<attribute>
-			<description><![CDATA[Javascript to execute when a keypress event occurs.]]></description>
-			<name>onkeypress</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
-		<attribute>
-			<description><![CDATA[Javascript to execute when a keyup event occurs.]]></description>
-			<name>onkeyup</name>
-			<required>false</required>
-			<type><![CDATA[java.lang.String]]></type>
-		</attribute>
-		<tag-extension>
-			<generate-java>false</generate-java>
-			<generate-taglib-xml>false</generate-taglib-xml>
-		</tag-extension>
-	</tag>
-	<tag>
 		<tag-name>lang</tag-name>
 		<attribute>
 			<description><![CDATA[HTML passthrough attribute specifying the language code used in the element.]]></description>

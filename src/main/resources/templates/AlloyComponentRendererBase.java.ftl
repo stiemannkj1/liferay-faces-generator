@@ -33,6 +33,7 @@ package ${get_component_package(tag["tag-name"])}.internal;
 //J-
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.annotation.Generated;
 import javax.faces.component.UIComponent;
@@ -61,9 +62,6 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 	</#if>
 	</#list>
 
-	// Modules
-	protected static final String[] MODULES = { "${get_tag_extension(tag, "alloy-ui-module")}" };
-
 	@Override
 	public void encodeAlloyAttributes(FacesContext facesContext, ResponseWriter responseWriter, UIComponent uiComponent) throws IOException {
 
@@ -91,8 +89,11 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 	}
 
 	@Override
-	protected String[] getModules(FacesContext facesContext, UIComponent uiComponent) {
-		return MODULES;
+	protected Set<String> getModules(FacesContext facesContext, UIComponent uiComponent) {
+
+		Set<String> modules = super.getModules(facesContext, uiComponent);
+		modules.add("${get_tag_extension(tag, "alloy-ui-module")}");
+		return modules;
 	}
 	<#list tag["attribute"]?sort_by("name") as attribute>
 	<#if is_alloy_ui(attribute)>

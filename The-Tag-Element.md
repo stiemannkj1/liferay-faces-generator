@@ -12,7 +12,7 @@ The `tag` element is designed to contain all the information that is useful for 
 		<!-- attribute children here --> 
 	</attribute>
 	<tag-extension>
-		<alloy-ui-module>autocomplete</alloy-ui-module>
+		<alloy-ui-modules>autocomplete</alloy-ui-modules>
 		<alloy-ui-name>Autocomplete</alloy-ui-name>
 		<delegate-component-family><![CDATA["javax.faces.TextRenderer"]]></delegate-component-family>
 		<delegate-renderer-type><![CDATA["javax.faces.Text"]]></delegate-renderer-type>
@@ -72,5 +72,5 @@ The `tag` element is designed to contain all the information that is useful for 
 
 | `tag- extension` Child Element Name | Description | Required | Default Value |
 |-------------------------------------|-------------|----------|---------------|
-| `alloy- ui- module` | The `<alloy-ui-module>` element specifies the [AlloyUI JavaScript module](http://alloyui.com/versions/2.0.x/api/) of the component. If this element exists, the component renderer base file will be generated via the [`AlloyComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/AlloyComponentRendererBase.java.ftl) rather than the [`ComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/ComponentRendererBase.java.ftl). | No | None |
+| `alloy- ui- module` | The `<alloy-ui-modules>` element specifies the [AlloyUI JavaScript module](http://alloyui.com/versions/2.0.x/api/) of the component. If this element exists, the component renderer base file will be generated via the [`AlloyComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/AlloyComponentRendererBase.java.ftl) rather than the [`ComponentRendererBase.java.ftl` template](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/templates/ComponentRendererBase.java.ftl). | No | None |
 | `alloy-ui- name` | The `<alloy-ui-name>` element specifies the name of the [AlloyUI JavaScript component](http://alloyui.com/versions/2.0.x/api/) which the JSF component will render. | No | If an `alloy-ui- module` has been specified, this defaults to the name of the tag, otherwise there is no default. |

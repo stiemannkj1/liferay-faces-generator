@@ -20,6 +20,6 @@
 </#function>
 
 <#function is_alloy tag>
-	<#return has_tag_extension(tag, "alloy-ui-module") />
+	<#return has_tag_extension(tag, "alloy-ui-modules") />
 </#function>
 </#compress>

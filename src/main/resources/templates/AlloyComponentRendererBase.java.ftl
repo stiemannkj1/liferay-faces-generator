@@ -62,7 +62,7 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 	</#list>
 
 	// Modules
-	protected static final String[] MODULES = { "${get_tag_extension(tag, "alloy-ui-module")}" };
+	protected static final String[] MODULES = { "${get_tag_extension(tag, "alloy-ui-modules")?replace(", *", "\", \"", "r")}" };
 
 	@Override
 	public void encodeAlloyAttributes(FacesContext facesContext, ResponseWriter responseWriter, UIComponent uiComponent) throws IOException {

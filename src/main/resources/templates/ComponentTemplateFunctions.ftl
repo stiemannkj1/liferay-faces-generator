@@ -10,7 +10,8 @@
 </#macro>
 
 <#macro generate_copyright_header shortNamespace copyrightYear>
-<#if shortNamespace == "bridge" || shortNamespace == "portlet">
+<#-- TODO make license configurable in tags.xml file -->
+<#if shortNamespace == "bridge" || shortNamespace == "portlet" || shortNamespace == "showcase">
 /**
  * Copyright (c) 2000-${copyrightYear} Liferay, Inc. All rights reserved.
  *

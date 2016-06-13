@@ -91,7 +91,7 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 	}
 
 	@Override
-	protected String[] getModules(FacesContext facesContext, UIComponent uiComponent) {
+	public String[] getModules(FacesContext facesContext, UIComponent uiComponent) {
 		return MODULES;
 	}
 	<#list tag["attribute"]?sort_by("name") as attribute>

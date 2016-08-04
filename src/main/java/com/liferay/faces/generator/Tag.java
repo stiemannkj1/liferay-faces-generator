@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2000-2015 Liferay, Inc. All rights reserved.
+ * Copyright (c) 2000-2016 Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -117,6 +117,43 @@ import freemarker.ext.dom.NodeModel;
 		}
 	}
 
+	/* package-private */ Map<String, Node> getAttributeMap() {
+		return Collections.unmodifiableMap(attributeMap);
+	}
+
+	/* package-private */ List<String> getExtendsTags() {
+		return Collections.unmodifiableList(extendsTags);
+	}
+
+	/* package-private */ String getTagName() {
+		return tagName;
+	}
+
+	/* package-private */ NodeModel getTagNodeModel() {
+
+		if (tagNodeModel == null) {
+			tagNodeModel = NodeModel.wrap(tagNode);
+		}
+
+		return tagNodeModel;
+	}
+
+	/* package-private */ boolean isGenerateComponent() {
+		return generateComponent;
+	}
+
+	/* package-private */ boolean isGenerateJava() {
+		return generateJava;
+	}
+
+	/* package-private */ boolean isGenerateRenderer() {
+		return generateRenderer;
+	}
+
+	/* package-private */ boolean isGenerateTaglibXML() {
+		return generateTaglibXML;
+	}
+
 	/* package-private */ void removeExtendsTags() {
 
 		extendsTags.clear();
@@ -133,10 +170,6 @@ import freemarker.ext.dom.NodeModel;
 				tagNode.removeChild(childNode);
 			}
 		}
-	}
-
-	/* package-private */ boolean isGenerateJava() {
-		return generateJava;
 	}
 
 	private void setAttributeExtension(Document document, Node attribute, String name, String value) {
@@ -166,38 +199,5 @@ import freemarker.ext.dom.NodeModel;
 		Node attributeExtensionNode = document.createElement(name);
 		attributeExtensionNode.setTextContent(value);
 		attributeExtensionParentNode.appendChild(attributeExtensionNode);
-	}
-
-	/* package-private */ Map<String, Node> getAttributeMap() {
-		return Collections.unmodifiableMap(attributeMap);
-	}
-
-	/* package-private */ List<String> getExtendsTags() {
-		return Collections.unmodifiableList(extendsTags);
-	}
-
-	/* package-private */ boolean isGenerateTaglibXML() {
-		return generateTaglibXML;
-	}
-
-	/* package-private */ boolean isGenerateRenderer() {
-		return generateRenderer;
-	}
-
-	/* package-private */ boolean isGenerateComponent() {
-		return generateComponent;
-	}
-
-	/* package-private */ String getTagName() {
-		return tagName;
-	}
-
-	/* package-private */ NodeModel getTagNodeModel() {
-
-		if (tagNodeModel == null) {
-			tagNodeModel = NodeModel.wrap(tagNode);
-		}
-
-		return tagNodeModel;
 	}
 }

@@ -14,7 +14,10 @@
 <#if faceletTaglibVersion == "2.1" || faceletTaglibVersion == "2.0">
 	<#assign defaultXMLNamespace = "http://java.sun.com/xml/ns/javaee" />
 	<#assign faceletTaglibVersion = "2.0" />
-	<#assign vdldocNamespace = "http://vdldoc.org/vdldoc" />
+</#if>
+<#assign showcasePrefix = "${shortNamespace?lower_case}" />
+<#if showcasePrefix == "portlet" || showcasePrefix == "bridge">
+	<#assign showcasePrefix = "jsf" />
 </#if>
 <facelet-taglib xmlns="${defaultXMLNamespace}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:vdldoc="${vdldocNamespace}"
@@ -69,7 +72,7 @@
 		</attribute>
 		</#list>
 		<tag-extension>
-			<vdldoc:example-url>http://www.liferayfaces.org/web/guest/showcase/-/component/${shortNamespace?lower_case}/${tag["tag-name"]?lower_case}/general</vdldoc:example-url>
+			<vdldoc:example-url>http://www.liferayfaces.org/web/guest/${showcasePrefix}-showcase/-/${showcasePrefix}-tag/${shortNamespace?lower_case}/${tag["tag-name"]?lower_case}/general</vdldoc:example-url>
 			<vdldoc:since>${get_tag_extension(tag, "since", defaultSince)}</vdldoc:since>
 		</tag-extension>
 	</tag>

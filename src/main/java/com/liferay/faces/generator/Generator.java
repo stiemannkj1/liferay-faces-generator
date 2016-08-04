@@ -53,7 +53,7 @@ import freemarker.template.TemplateExceptionHandler;
 /**
  * @author  Kyle Stiemann
  */
-public class Generator {
+public final class Generator {
 
 	private Configuration configuration;
 	private DocumentBuilder documentBuilder;

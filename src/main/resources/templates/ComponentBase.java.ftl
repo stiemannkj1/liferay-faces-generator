@@ -3,9 +3,9 @@
 <#macro generate_javadoc attribute>
 	/**
 	<#if attribute["description"][0]??>
-	 * <code>${attribute["name"]}</code> attribute description:
-	 * <br /><br />
-	 * ${format_description(attribute["description"])}
+	 * <p><code>${attribute["name"]}</code> attribute description:</p>
+	 *
+	 * <p>${format_description(attribute["description"])}</p>
 	</#if>
 	<#if has_attribute_extension(attribute, "deprecated")>
 	 *

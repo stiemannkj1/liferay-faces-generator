@@ -9,7 +9,7 @@
 <#-- If the JSF version is 2.1, the Facelet Taglib version is 2.0. See -->
 <#-- https://issues.liferay.com/browse/FACES-2109#commentauthor_590915_verbose for more details. -->
 <#assign defaultXMLNamespace = "http://xmlns.jcp.org/xml/ns/javaee">
-<#assign faceletTaglibVersion = facesSpecVersion>
+<#assign faceletTaglibVersion = facesSpecVersion?replace("-[a-zA-Z][a-zA-Z0-9]+$", "", "r")>
 <#assign vdldocNamespace = "http://vdldoc.omnifaces.org" />
 <#if faceletTaglibVersion == "2.1" || faceletTaglibVersion == "2.0">
 	<#assign defaultXMLNamespace = "http://java.sun.com/xml/ns/javaee" />

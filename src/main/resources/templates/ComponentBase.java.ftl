@@ -5,7 +5,7 @@
 	<#if attribute["description"][0]??>
 	 * <p><code>${attribute["name"]}</code> attribute description:</p>
 	 *
-	 * <p>${format_description(attribute["description"])}</p>
+	 * <div>${format_description(attribute["description"])}</div>
 	</#if>
 	<#if has_attribute_extension(attribute, "deprecated")>
 	 *

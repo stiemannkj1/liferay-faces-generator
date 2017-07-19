@@ -11,6 +11,22 @@
 	}
 </#macro>
 
+<#macro generate_null_check_decode_method tag>
+	@Override
+	public void decode(FacesContext facesContext, UIComponent uiComponent) {
+
+		super.decode(facesContext, uiComponent);
+
+		UIInput uiInput = (UIInput) uiComponent;
+		Object submittedValue = uiInput.getSubmittedValue();
+
+		// FACES-3139 Avoid the possibility of a NullPointerException for custom components
+		if (submittedValue == null) {
+			uiInput.setSubmittedValue("");
+		}
+	}
+</#macro>
+
 <#function get_constant_string string>
 	<#return string?replace("([A-Z]+)", "_$1", "r")?upper_case />
 </#function>

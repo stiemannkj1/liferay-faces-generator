@@ -36,6 +36,9 @@ import java.io.IOException;
 
 import javax.annotation.Generated;
 import javax.faces.component.UIComponent;
+<#if tag_is(tag, "generate-null-check-decode-method", false)>
+import javax.faces.component.UIInput;
+</#if>
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
@@ -63,6 +66,10 @@ public abstract class ${tag["tag-name"]?cap_first}RendererBase extends ${get_ren
 
 	// Modules
 	protected static final String[] MODULES = { "${get_tag_extension(tag, "alloy-ui-modules")?replace(", *", "\", \"", "r")}" };
+	<#if tag_is(tag, "generate-null-check-decode-method", false)>
+
+<@generate_null_check_decode_method tag />
+	</#if>
 
 	@Override
 	public void encodeAlloyAttributes(FacesContext facesContext, ResponseWriter responseWriter, UIComponent uiComponent) throws IOException {

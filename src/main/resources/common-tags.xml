@@ -170,7 +170,7 @@
 			<description><![CDATA[When true, this causes an attribute to be rendered as readonly="readonly", and prevents the user from changing the value of this component.]]></description>
 			<name>readonly</name>
 			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
+			<type><![CDATA[boolean]]></type>
 		</attribute>
 		<tag-extension>
 			<extends-tags>uiInput</extends-tags>
@@ -205,6 +205,9 @@
 			<name>role</name>
 			<required>false</required>
 			<type><![CDATA[java.lang.String]]></type>
+			<attribute-extension>
+				<since>JSF 2.2</since>
+			</attribute-extension>
 		</attribute>
 		<tag-extension>
 			<extends-tags>dir lang styleable title uiComponentBase</extends-tags>
@@ -316,7 +319,7 @@
 			<description><![CDATA[When this flag is true, this component's value must be converted and validated (immediately) during the Apply Request Values phase, instead of (later) during the PROCESS_VALIDATIONS phase.]]></description>
 			<name>immediate</name>
 			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
+			<type><![CDATA[boolean]]></type>
 		</attribute>
 		<tag-extension>
 			<generate-java>false</generate-java>
@@ -561,7 +564,7 @@ void actionListener(javax.faces.event.ActionEvent)
 			<description><![CDATA[When this flag is true, and a value has not been specified for this component, then the PROCESS_VALIDATIONS phase will fail and a FacesMessage will be added to the FacesContext for this component.]]></description>
 			<name>required</name>
 			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
+			<type><![CDATA[boolean]]></type>
 		</attribute>
 		<attribute>
 			<description><![CDATA[This message or the result of the specified expression, will be used as the text of the validation error message instead of any message that comes from the resulting validation error for this component when required="true" and no value is selected by the user.]]></description>
@@ -604,7 +607,10 @@ void valueChange(javax.faces.event.ValueChangeEvent)
 			<description><![CDATA[When this flag is true, the client window param will not be inlcuded on the navigation URL. <b>Note:</b> the <code>ClientWindow</code> feature is disabled by default, so this attribute will have no effect unless <code>ClientWindow</code> is enabled.]]></description>
 			<name>disableClientWindow</name>
 			<required>false</required>
-			<type><![CDATA[java.lang.Boolean]]></type>
+			<type><![CDATA[boolean]]></type>
+			<attribute-extension>
+				<since>JSF 2.2</since>
+			</attribute-extension>
 		</attribute>
 		<attribute>
 			<description><![CDATA[A fragment to be appended to the navigation URL.]]></description>

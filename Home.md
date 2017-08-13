@@ -52,7 +52,7 @@ The generator can also be used with `maven` via the `exec-maven-plugin`:
 		<dependency>
 			<groupId>com.liferay.faces.generator</groupId>
 			<artifactId>liferay-faces-generator</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<version>1.1.1</version>
 		</dependency>
 	</dependencies>
 </plugin>

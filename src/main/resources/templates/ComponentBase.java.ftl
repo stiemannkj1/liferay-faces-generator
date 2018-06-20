@@ -87,11 +87,14 @@ import com.liferay.faces.util.component.Styleable;
 </#if>
 </#if>
 
+import org.osgi.annotation.versioning.ProviderType;
+
 
 <#if authors??>
 <@generate_authors authors />
 </#if>
 @Generated(value = "com.liferay.alloy.tools.builder.FacesBuilder")
+@ProviderType
 public abstract class ${tag["tag-name"]?cap_first}Base extends ${get_extends_class_name(get_parent_class(tag), "${tag[\"tag-name\"]?cap_first}Base")}<#if clientComponent || styleable> implements<#if styleable> Styleable</#if><#if styleable && clientComponent>,</#if><#if clientComponent> ClientComponent</#if></#if> {
 
 	// Public Constants

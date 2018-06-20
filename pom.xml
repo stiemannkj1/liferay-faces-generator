@@ -4,7 +4,7 @@
 
 	<groupId>com.liferay.faces</groupId>
 	<artifactId>com.liferay.faces.generator</artifactId>
-	<version>1.1.2</version>
+	<version>1.1.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Liferay Faces Generator</name>

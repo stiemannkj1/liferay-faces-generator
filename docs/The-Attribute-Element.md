@@ -57,7 +57,7 @@ The `attribute` element is designed to contain all the information necessary to 
 
 ### `attribute-extension`s for [Liferay Faces Alloy Components](https://github.com/liferay/liferay-faces-alloy/tree/master/alloy/src/main/java/com/liferay/faces/alloy/component)
 
-| `attribute- extension` Child Element Name | Description | Required | Default Value |
+| `attribute-extension` Child Element Name | Description | Required | Default Value |
 |-------------------------------------------|-------------|----------|---------------|
 | `alloy-ui` | The `alloy-ui` element specifies whether an attribute corresponds directly with an AlloyUI JavaScript attribute. If `<alloy-ui>` is set to `true`, then code for rendering the JavaScript attribute will be generated automatically. | No | If any other `alloy-ui` elements are specified on this attribute, this defaults to `true`, otherwise it defaults to `false` |
 | `alloy-ui-name` | The `<alloy-ui-name>` element specifies the AlloyUI JavaScript name of the attribute. | No | Defaults to the `name` of the attribute. |

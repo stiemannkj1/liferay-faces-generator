@@ -1,6 +1,6 @@
 # The `facelet-taglib` Element
 
-The `facelet-taglib` element is the root element of the [`tags.xml`](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-tags.xml-File) file. It contains all the information necessary to generate a JSF tag library.
+The `facelet-taglib` element is the root element of the [`tags.xml`](./The-tags.xml-File.md) file. It contains all the information necessary to generate a JSF tag library.
 
 ## Examples
 
@@ -37,10 +37,10 @@ The `facelet-taglib` element is the root element of the [`tags.xml`](https://git
 | `facelet-taglib` Child Element Name | Description | Required | Default Value |
 |-------------------------------------|-------------|----------|---------------|
 | `description` | The `<description>` element specifies a description of the tag library. | No | None |
-| `function` | The `<funtion>` element specifies one of the functions of the tag library. A tag library may have many functions. See the [examples](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#examples) for an example of how to specify a function. | No | None |
+| `function` | The `<funtion>` element specifies one of the functions of the tag library. A tag library may have many functions. See the [examples](./The-Facelet-Taglib-Element.md#examples) for an example of how to specify a function. | No | None |
 | `namespace` | The `<namespace>` element specifies a namespace URI of the tag library. | Yes | None |
-| `taglib-extension` | The `<taglib-extension>` element specifies information needed to generate the JSF component suite. See [the *`taglib-extension`s* section](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Facelet-Taglib-Element#taglib-extensions) for more details. | Yes | None |
-| `tag` | The `<tag>` element specifies one of the tags of the tag library. A tag library may have many `tag`s. See [*The `tag` Element* page](https://github.com/stiemannkj1/liferay-faces-generator/wiki/The-Tag-Element) for more details. | No | None |
+| `taglib-extension` | The `<taglib-extension>` element specifies information needed to generate the JSF component suite. See [the *`taglib-extension`s* section](./The-Facelet-Taglib-Element.md#taglib-extensions) for more details. | Yes | None |
+| `tag` | The `<tag>` element specifies one of the tags of the tag library. A tag library may have many `tag`s. See [*The `tag` Element* page](./The-Tag-Element.md) for more details. | No | None |
 
 ### `taglib-extension`s
 

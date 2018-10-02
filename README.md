@@ -4,7 +4,7 @@ The Liferay Faces Generator is a code generator designed to generate
 Java Server&trade; Faces (JSF) custom components and `taglib.xml` files. The
 aim of the generator is to reduce the errors and duplicated work associated
 with writing JSF custom components. The generator takes as input a single
-[`taglib.xml`-like](https://github.com/stiemannkj1/liferay-faces-generator/blob/master/src/main/resources/common-tags.xml)
+[`taglib.xml`-like](./src/main/resources/common-tags.xml)
 file and outputs custom components and a `taglib.xml` file.
 
 ## License
@@ -60,6 +60,8 @@ The generator can also be used with `maven` via the `exec-maven-plugin`:
 	</dependencies>
 </plugin>
 ```
+
+For detailed usage instructions, see the [**`docs/`** folder](./docs/).
 
 ## Community Participation
 
